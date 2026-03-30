@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AutoRent | Premium Car Rentals in Lagos</title>
+<meta name="description" content="AutoRent — Lagos' most trusted premium car rental service. Luxury, SUV, Sedan and Economy vehicles with transparent pricing and 24/7 support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="autorent favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   AUTORENT — CSS DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+  --black-pure: #000000;
+  --black-deep: #050505;
+  --black-matte: #0a0a0a;
+  --black-soft: #111111;
+  --black-card: #141414;
+  --black-mid: #1a1a1a;
+  --black-light: #222222;
+  --black-border: #2a2a2a;
+
+  --white-pure: #ffffff;
+  --white-off: #F5F5F7;
+  --white-soft: #e8e8e8;
+  --white-muted: #c0c0c0;
+  --white-dim: #888888;
+  --white-ghost: #555555;
+
+  --accent: #0052FF;
+  --accent-hover: #0043CC;
+  --accent-glow: rgba(0, 82, 255, 0.25);
+
+  --grad-white: linear-gradient(135deg, #ffffff 0%, #c8c8c8 50%, #888888 100%);
+  --grad-white-text: linear-gradient(90deg, #ffffff 0%, #aaaaaa 100%);
+  --grad-silver: linear-gradient(135deg, #F5F5F7 0%, #9a9a9a 100%);
+  --grad-glass: linear-gradient(135deg, rgba(245,245,247,0.06) 0%, rgba(245,245,247,0.01) 100%);
+  --grad-card-hover: linear-gradient(135deg, rgba(245,245,247,0.05) 0%, rgba(245,245,247,0.01) 100%);
+
+  --glass-bg: rgba(15, 15, 15, 0.75);
+  --glass-border: rgba(245,245,247,0.1);
+  --glass-border-hover: rgba(245,245,247,0.22);
+  --glass-blur: blur(20px);
+
+  --font-display: 'Rajdhani', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  --size-xs: 11px;
+  --size-sm: 13px;
+  --size-base: 15px;
+  --size-md: 17px;
+  --size-lg: 20px;
+  --size-xl: 24px;
+  --size-2xl: 32px;
+  --size-3xl: 44px;
+  --size-4xl: 56px;
+  --size-5xl: 72px;
+  --size-hero: clamp(52px, 8vw, 100px);
+
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --spacing-2xl: 100px;
+  --spacing-3xl: 140px;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-mid: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.6);
+  --shadow-xl: 0 40px 80px rgba(0,0,0,0.7);
+
+  --border-radius: 0px;
+  --header-h: 76px;
+  --container-max: 1320px;
+}
+
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   FIX 1: NUCLEAR OUTLINE/FOCUS REMOVAL
+   Remove every possible blue ring browsers can draw
+   ============================================================ */
+*, *:focus, *:focus-visible, *:focus-within, *:active,
+a, a:focus, a:focus-visible, a:active,
+button, button:focus, button:focus-visible, button:active,
+input, input:focus, input:focus-visible,
+select, select:focus, select:focus-visible,
+textarea, textarea:focus, textarea:focus-visible,
+[tabindex], [tabindex]:focus, [tabindex]:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  outline-width: 0 !important;
+  outline-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Prevent Chrome's blue box-shadow focus ring on buttons/inputs */
+button:focus,
+button:focus-visible,
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+a:focus,
+a:focus-visible {
+  box-shadow: none !important;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--black-border) var(--black-matte);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black-matte); }
+::-webkit-scrollbar-thumb { background: var(--black-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--white-ghost); }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black-pure);
+  color: var(--white-pure);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.menu-open { overflow: hidden; }
+
+a, button {
+  outline: none !important;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+input, select, textarea { font-family: var(--font-body); outline: none !important; }
+button { cursor: pointer; border: none; background: none; }
+
+/* ---------- GRAIN OVERLAY ---------- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ---------- PAGE LOADER ---------- */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--black-pure);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#page-loader.hidden { opacity: 0; visibility: hidden; }
+
+.loader-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: loaderPulse 1.5s ease-in-out infinite;
+}
+.loader-logo img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+.loader-bar {
+  width: 200px;
+  height: 1px;
+  background: var(--black-border);
+  position: relative;
+  overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: loaderSweep 1.2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes loaderSweep { 0% { left: -60%; } 100% { left: 120%; } }
+
+/* ---------- CONTAINER ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 1000;
+  transition: all var(--transition-mid);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-mid);
+}
+.site-header.scrolled::before {
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: var(--glass-blur);
+  border-bottom-color: var(--glass-border);
+}
+
+.header-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.site-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-fast);
+}
+.site-logo:hover img { filter: brightness(0) invert(0.85); }
+
+/* ============================================================
+   FIX 1 CONTINUED: Nav links — NO blue underline anywhere
+   Active state uses white underline, never accent/blue
+   ============================================================ */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link {
+  font-family: var(--font-condensed);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-pure);
+  opacity: 0.45;
+  padding: 8px 18px;
+  position: relative;
+  transition: opacity var(--transition-mid);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* White underline — never blue */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: var(--white-pure); /* WHITE — not accent */
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Header CTA */
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FIX 3: Hamburger — thinner lines (0.5px)
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  z-index: 1002;
+  cursor: pointer;
+  user-select: none;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 0.5px; /* Thinner lines */
+  background: var(--white-pure);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ============================================================
+   FIX 4: Mobile Menu — sophisticated fade + slide animations
+   ============================================================ */
+
+/* Full-screen overlay backdrop */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  z-index: 1000;
+  pointer-events: none;
+  transition:
+    background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-overlay.visible {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  background: #050505;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Menu inner content */
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 36px 40px;
+  overflow-y: auto;
+}
+
+/* Menu top bar with close */
+.mobile-menu-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 32px;
+}
+
+.mobile-menu-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--white-pure);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+.mobile-menu.open .mobile-menu-logo {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Close button — thin X */
+.mobile-menu-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: rotate(-90deg);
+  transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, color var(--transition-fast);
+  color: var(--white-dim);
+}
+.mobile-menu-close:hover { color: var(--white-pure); }
+.mobile-menu.open .mobile-menu-close {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+.mobile-menu-close svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1; /* Thin X icon */
+  stroke-linecap: round;
+}
+
+/* Nav links — staggered fade-up */
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white-ghost);
+  padding: 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    color 0.25s ease,
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-nav-link::after {
+  content: '→';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mobile-nav-link:hover { color: var(--white-pure); }
+.mobile-nav-link:hover::after { opacity: 0.4; transform: translateY(-50%) translateX(0); }
+.mobile-nav-link:last-of-type { border-bottom: none; }
+
+/* Staggered entrance */
+.mobile-menu.open .mobile-nav-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+.mobile-menu.open .mobile-nav-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.17s; }
+.mobile-menu.open .mobile-nav-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
+.mobile-menu.open .mobile-nav-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.27s; }
+.mobile-menu.open .mobile-nav-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+
+/* Bottom CTA in menu */
+.mobile-menu-bottom {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease 0.38s, transform 0.4s ease 0.38s;
+}
+.mobile-menu.open .mobile-menu-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-menu-contact {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white-ghost);
+  margin-bottom: 12px;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all var(--transition-mid);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--white-pure);
+  padding: 14px 36px;
+  font-size: var(--size-sm);
+  border: 1px solid var(--accent);
+}
+.btn-primary::before { background: rgba(0,0,0,0.15); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--accent-glow);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.btn-primary:active { transform: translateY(0); box-shadow: none; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white-pure);
+  padding: 14px 36px;
+  font-size: var(--size-sm);
+  border: 1px solid var(--glass-border-hover);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--white-pure);
+  transform: translateY(-2px);
+}
+.btn-outline:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white-muted);
+  padding: 10px 20px;
+  font-size: var(--size-xs);
+  border: 1px solid var(--glass-border);
+}
+.btn-ghost:hover {
+  color: var(--white-pure);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.04);
+}
+
+.btn-sm  { padding: 10px 24px; font-size: var(--size-xs); }
+.btn-full { width: 100%; }
+.btn-icon { width: 44px; height: 44px; padding: 0; }
+
+/* ---------- SECTION COMMON ---------- */
+section { position: relative; }
+.section-pad    { padding: var(--spacing-2xl) 0; }
+.section-pad-lg { padding: var(--spacing-3xl) 0; }
+
+.section-label {
+  font-family: var(--font-condensed);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::before, .section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--glass-border);
+  max-width: 48px;
+}
+.section-label.left::before { display: none; }
+.section-label.left::after  { display: none; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--size-3xl), 5vw, var(--size-5xl));
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-desc {
+  font-size: var(--size-base);
+  color: var(--white-dim);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.section-header-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+.section-header-center .section-desc { max-width: 520px; }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal        { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left        { opacity: 0; transform: translateX(-32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right        { opacity: 0; transform: translateX(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ============================================================
+   PAGES (SPA)
+   ============================================================ */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ============================================================
+   HOME PAGE — HERO
+   ============================================================ */
+.hero-section {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* ============================================================
+   FIX 2: VIDEO — Smooth, no crackling
+   Key: isolate on GPU layer, NO scale transform (causes judder),
+   minimal will-change, let the browser buffer properly
+   ============================================================ */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  /* Clean GPU promotion — NO scale (scale causes frame judder on loop) */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+}
+
+.hero-video.loaded { opacity: 1; }
+
+.hero-video-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(40,40,40,0.8) 0%, transparent 60%),
+    linear-gradient(135deg, #000000 0%, #111111 50%, #080808 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0.75) 80%,
+    rgba(0,0,0,0.97) 100%
+  );
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-lines::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: 5%;
+  width: 1px; height: 60%;
+  background: linear-gradient(180deg, transparent, rgba(245,245,247,0.06), transparent);
+  transform: rotate(15deg);
+}
+.hero-lines::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; right: 15%;
+  width: 1px; height: 80%;
+  background: linear-gradient(180deg, transparent, rgba(245,245,247,0.04), transparent);
+  transform: rotate(15deg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-bottom: var(--spacing-3xl);
+  padding-top: var(--header-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: var(--size-hero);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+  text-align: center;
+}
+.hero-h1 .word-grad {
+  display: inline-block;
+  background: var(--grad-white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-h1 .word-thin {
+  font-weight: 300;
+  color: var(--white-muted);
+}
+
+.hero-sub {
+  font-size: var(--size-md);
+  color: var(--white-dim);
+  max-width: 460px;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 300;
+  text-align: center;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero-stats-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-top: 1px solid var(--glass-border);
+  padding-top: var(--spacing-lg);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.hero-stat {
+  flex: 1;
+  padding: 0 var(--spacing-lg);
+  border-right: 1px solid var(--glass-border);
+}
+.hero-stat:first-child { padding-left: 0; }
+.hero-stat:last-child  { border-right: none; }
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: var(--size-2xl);
+  font-weight: 700;
+  color: var(--white-pure);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-label {
+  font-family: var(--font-condensed);
+  font-size: var(--size-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-ghost);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  animation: heroScrollBounce 2s ease-in-out infinite;
+}
+@keyframes heroScrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+.hero-scroll-line  { width: 1px; height: 60px; background: linear-gradient(180deg, transparent, var(--white-pure)); }
+.hero-scroll-label { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--white-pure); writing-mode: vertical-rl; }
+
+/* ---------- TICKER ---------- */
+.ticker-section {
+  background: #050505;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  animation: tickerScroll 30s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 40px;
+  font-family: var(--font-condensed);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white-ghost);
+}
+.ticker-dot { width: 3px; height: 3px; background: var(--accent); border-radius: 0; flex-shrink: 0; }
+@keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ---------- WHY AUTORENT ---------- */
+.why-section {
+  background: #080808;
+  background-image: linear-gradient(to bottom, #050505 0%, #080808 80px, #080808 100%);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-visual {
+  position: relative;
+  height: 560px;
+}
+.why-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 78%; height: 85%;
+  object-fit: cover;
+  z-index: 1;
+  filter: grayscale(20%);
+  transition: filter var(--transition-slow);
+}
+.why-img-main:hover { filter: grayscale(0%); }
+.why-img-accent {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 48%; height: 50%;
+  object-fit: cover;
+  border: 4px solid #080808;
+  z-index: 2;
+  filter: grayscale(20%);
+}
+
+.why-badge {
+  position: absolute;
+  top: var(--spacing-lg); right: 0;
+  z-index: 3;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+}
+.why-badge-num {
+  font-family: var(--font-display);
+  font-size: var(--size-3xl);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-white-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.why-badge-label {
+  font-family: var(--font-condensed);
+  font-size: var(--size-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+.why-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+.why-feature {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--grad-glass);
+  border: 1px solid var(--glass-border);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+.why-feature::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 2px; height: 0;
+  background: var(--white-ghost);
+  transition: height var(--transition-mid);
+}
+.why-feature:hover { border-color: var(--glass-border-hover); background: var(--grad-card-hover); }
+.why-feature:hover::before { height: 100%; }
+
+.why-feature-icon {
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.why-feature-icon svg { width: 20px; height: 20px; stroke: var(--white-muted); fill: none; stroke-width: 1.5; }
+.why-feature-body h4 { font-family: var(--font-display); font-size: var(--size-lg); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px; }
+.why-feature-body p  { font-size: var(--size-sm); color: var(--white-dim); line-height: 1.7; }
+
+/* ---------- STATS COUNTER ---------- */
+.stats-section {
+  background: #0a0a0a;
+  background-image: linear-gradient(to bottom, #080808 0%, #0a0a0a 60px, #0a0a0a 100%);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.stat-item {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-right: 1px solid var(--glass-border);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-mid);
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(255,255,255,0.02); }
+.stat-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0; height: 2px;
+  background: var(--white-ghost);
+  transform: translateX(-50%);
+  transition: width var(--transition-slow);
+}
+.stat-item:hover::after { width: 40%; }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(var(--size-3xl), 4vw, 60px);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-white-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+  display: block;
+}
+.stat-label { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 3px; text-transform: uppercase; color: var(--white-ghost); }
+
+/* ---------- FEATURED CARS ---------- */
+.featured-section {
+  background: #0d0d0d;
+  background-image: linear-gradient(to bottom, #0a0a0a 0%, #0d0d0d 80px, #0d0d0d 100%);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--glass-border);
+  border: 1px solid var(--glass-border);
+}
+
+.car-card {
+  background: #141414;
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-mid);
+  display: flex;
+  flex-direction: column;
+}
+.car-card:hover { z-index: 1; }
+
+.car-card-media { position: relative; overflow: hidden; height: 220px; flex-shrink: 0; }
+.car-card-img   { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); filter: grayscale(15%); }
+.car-card:hover .car-card-img { transform: scale(1.06); filter: grayscale(0%); }
+.car-card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%); }
+
+.car-card-badge {
+  position: absolute;
+  top: var(--spacing-sm); left: var(--spacing-sm);
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  padding: 4px 12px;
+  font-family: var(--font-condensed);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.badge-available { color: #7ec850; border-color: rgba(126,200,80,0.2); background: rgba(126,200,80,0.08); }
+.badge-limited   { color: #f0a500; border-color: rgba(240,165,0,0.2);  background: rgba(240,165,0,0.08); }
+.badge-booked    { color: #e05252; border-color: rgba(224,82,82,0.2);  background: rgba(224,82,82,0.08); }
+
+.car-card-cat {
+  position: absolute;
+  bottom: var(--spacing-sm); right: var(--spacing-sm);
+  font-family: var(--font-condensed);
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+.car-card-body { padding: var(--spacing-md); display: flex; flex-direction: column; flex: 1; border-top: 1px solid var(--glass-border); }
+.car-card-name { font-family: var(--font-display); font-size: var(--size-xl); font-weight: 700; letter-spacing: 0.5px; line-height: 1.1; margin-bottom: var(--spacing-xs); transition: color var(--transition-fast); }
+.car-card:hover .car-card-name { color: var(--white-soft); }
+
+.car-card-specs { display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0; flex-wrap: wrap; }
+.spec-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 1px; color: var(--white-ghost);
+}
+.spec-chip svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+.car-card-divider { width: 100%; height: 1px; background: var(--glass-border); margin: var(--spacing-sm) 0; }
+
+.car-card-footer { display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; padding-top: var(--spacing-sm); }
+.car-price { line-height: 1; }
+.car-price-amount { font-family: var(--font-display); font-size: var(--size-2xl); font-weight: 700; color: var(--white-pure); }
+.car-price-period { font-size: var(--size-xs); color: var(--white-ghost); margin-top: 3px; font-family: var(--font-condensed); letter-spacing: 1px; }
+
+/* ---------- BOOKING SECTION ---------- */
+.booking-section {
+  background: #0f0f0f;
+  background-image: linear-gradient(to bottom, #0d0d0d 0%, #0f0f0f 80px, #0f0f0f 100%);
+  overflow: hidden;
+  position: relative;
+}
+.booking-section::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,245,247,0.08), transparent);
+}
+
+.booking-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+.booking-info-label { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 4px; text-transform: uppercase; color: var(--white-dim); margin-bottom: var(--spacing-sm); }
+.booking-info-title { font-family: var(--font-display); font-size: clamp(var(--size-3xl), 4vw, var(--size-5xl)); font-weight: 700; line-height: 1.0; letter-spacing: -1px; margin-bottom: var(--spacing-md); }
+.booking-info-desc { font-size: var(--size-base); color: var(--white-dim); line-height: 1.8; margin-bottom: var(--spacing-lg); }
+.booking-perks { display: flex; flex-direction: column; gap: 12px; }
+.booking-perk {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-condensed); font-size: var(--size-sm); letter-spacing: 1px; color: var(--white-muted);
+}
+.perk-check { width: 20px; height: 20px; border: 1px solid var(--white-ghost); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.perk-check svg { width: 10px; height: 10px; stroke: var(--white-muted); fill: none; stroke-width: 2.5; }
+
+.booking-form-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: var(--spacing-lg);
+  position: relative;
+}
+.booking-form-card::before { content: ''; position: absolute; top: 0; left: 0; width: 60px; height: 2px; background: var(--white-ghost); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+.form-row.single { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--spacing-sm); }
+.form-label { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 2px; text-transform: uppercase; color: var(--white-dim); }
+.form-control {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--glass-border);
+  padding: 13px 16px;
+  color: var(--white-pure);
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.form-control:focus { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.03); box-shadow: none !important; }
+.form-control option { background: var(--black-soft); }
+.form-control::placeholder { color: var(--white-ghost); }
+.form-select-wrap { position: relative; }
+.form-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--white-ghost);
+  pointer-events: none;
+}
+.form-msg { text-align: center; font-size: var(--size-sm); margin-top: var(--spacing-sm); min-height: 20px; }
+.form-msg.success { color: #7ec850; }
+.form-msg.error   { color: #e05252; }
+
+/* ---------- HOW IT WORKS ---------- */
+.how-section {
+  background: #0a0a0a;
+  background-image: linear-gradient(to bottom, #0f0f0f 0%, #0a0a0a 80px, #0a0a0a 100%);
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+.how-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
+  height: 1px;
+  background: var(--glass-border);
+}
+
+.how-step { padding: 0 var(--spacing-md); text-align: center; position: relative; }
+.how-step-num {
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  background: #141414;
+  border: 1px solid var(--glass-border);
+  position: relative; z-index: 1;
+  transition: all var(--transition-mid);
+}
+.how-step:hover .how-step-num { background: var(--white-ghost); border-color: var(--white-ghost); }
+.how-step-num span { font-family: var(--font-display); font-size: var(--size-2xl); font-weight: 700; color: var(--white-dim); transition: color var(--transition-fast); line-height: 1; }
+.how-step:hover .how-step-num span { color: var(--white-pure); }
+.how-step h3 { font-family: var(--font-display); font-size: var(--size-xl); font-weight: 600; margin-bottom: var(--spacing-xs); letter-spacing: 0.5px; }
+.how-step p  { font-size: var(--size-sm); color: var(--white-dim); line-height: 1.8; }
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials-section {
+  background: #111111;
+  background-image: linear-gradient(to bottom, #0a0a0a 0%, #111111 80px, #111111 100%);
+  overflow: hidden;
+}
+
+.testimonials-wrap { position: relative; overflow: hidden; }
+.testimonials-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.testimonial-slide { flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); padding: 2px; }
+
+.testimonial-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: var(--spacing-lg);
+  position: relative; overflow: hidden;
+  transition: border-color var(--transition-mid);
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px; right: var(--spacing-md);
+  font-family: var(--font-display);
+  font-size: 120px; font-weight: 700;
+  color: rgba(245,245,247,0.025);
+  line-height: 1; pointer-events: none;
+}
+.testimonial-card:hover { border-color: var(--glass-border-hover); }
+.testimonial-stars { display: flex; gap: 3px; margin-bottom: var(--spacing-sm); }
+.testimonial-stars svg { width: 14px; height: 14px; fill: #f0a500; stroke: none; }
+.testimonial-text { font-size: var(--size-base); color: var(--white-muted); line-height: 1.85; margin-bottom: var(--spacing-md); font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; padding-top: var(--spacing-sm); border-top: 1px solid var(--glass-border); }
+.testimonial-avatar { width: 44px; height: 44px; object-fit: cover; filter: grayscale(30%); flex-shrink: 0; }
+.testimonial-name { font-family: var(--font-display); font-size: var(--size-base); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 2px; }
+.testimonial-role { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 2px; text-transform: uppercase; color: var(--white-ghost); }
+
+.testimonials-controls { display: flex; align-items: center; justify-content: center; gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+.carousel-btn {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.carousel-btn svg { width: 18px; height: 18px; stroke: var(--white-muted); fill: none; stroke-width: 1.5; transition: stroke var(--transition-fast); }
+.carousel-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); }
+.carousel-btn:hover svg { stroke: var(--white-pure); }
+.carousel-dots { display: flex; gap: 8px; }
+.carousel-dot { width: 24px; height: 2px; background: var(--glass-border); cursor: pointer; transition: all var(--transition-fast); }
+.carousel-dot.active { background: var(--white-muted); width: 48px; }
+
+/* ---------- CTA BANNER ---------- */
+.cta-section {
+  background: #080808;
+  background-image: linear-gradient(to bottom, #111111 0%, #080808 80px, #080808 100%);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+  position: relative;
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+.cta-text h2 { font-family: var(--font-display); font-size: clamp(var(--size-2xl), 4vw, 52px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: var(--spacing-xs); }
+.cta-text p  { color: var(--white-dim); font-size: var(--size-base); }
+.cta-bg-text {
+  position: absolute;
+  right: -20px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(80px, 15vw, 160px);
+  font-weight: 700;
+  color: rgba(245,245,247,0.015);
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -4px;
+  line-height: 1;
+}
+
+/* ============================================================
+   FLEET PAGE
+   ============================================================ */
+.fleet-hero {
+  padding-top: calc(var(--header-h) + var(--spacing-xl));
+  padding-bottom: var(--spacing-xl);
+  background: #060606;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+.fleet-hero-bg { position: absolute; right: 0; top: 0; bottom: 0; width: 45%; object-fit: cover; opacity: 0.08; filter: grayscale(100%); }
+.fleet-hero-content { position: relative; z-index: 1; }
+
+.fleet-page-title { font-family: var(--font-display); font-size: clamp(var(--size-4xl), 7vw, 88px); font-weight: 700; text-transform: uppercase; letter-spacing: -2px; line-height: 1.0; margin-bottom: var(--spacing-md); }
+.fleet-page-desc  { font-size: var(--size-base); color: var(--white-dim); max-width: 480px; line-height: 1.8; }
+
+.fleet-filters {
+  background: #0c0c0c;
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 100;
+}
+.fleet-filters-inner { display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.fleet-filters-inner::-webkit-scrollbar { display: none; }
+
+.filter-tab {
+  font-family: var(--font-condensed);
+  font-size: var(--size-xs); font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--white-ghost);
+  padding: 18px 28px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  background: none;
+  border-top: none; border-left: none; border-right: none;
+  position: relative;
+  user-select: none;
+}
+.filter-tab:hover { color: var(--white-muted); }
+.filter-tab.active { color: var(--white-pure); border-bottom-color: var(--white-muted); }
+
+.fleet-count {
+  margin-left: auto; padding: 0 var(--spacing-lg);
+  font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 2px;
+  color: var(--white-ghost); white-space: nowrap;
+  display: flex; align-items: center; flex-shrink: 0;
+}
+
+.fleet-section {
+  background: #0e0e0e;
+  background-image: linear-gradient(to bottom, #0c0c0c 0%, #0e0e0e 80px, #0e0e0e 100%);
+}
+
+.fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+
+.fleet-card {
+  background: #181818;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-mid);
+}
+.fleet-card:hover {
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.fleet-card-media { position: relative; height: 240px; overflow: hidden; }
+.fleet-card-img   { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow), filter var(--transition-slow); filter: grayscale(20%); }
+.fleet-card:hover .fleet-card-img { transform: scale(1.08); filter: grayscale(0%); }
+.fleet-card-overlay-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.85) 100%); }
+.fleet-card-badges { position: absolute; top: var(--spacing-sm); left: var(--spacing-sm); right: var(--spacing-sm); display: flex; justify-content: space-between; align-items: flex-start; }
+.fleet-card-body { padding: var(--spacing-md); display: flex; flex-direction: column; flex: 1; }
+.fleet-card-name { font-family: var(--font-display); font-size: var(--size-2xl); font-weight: 700; letter-spacing: 0.5px; margin-bottom: var(--spacing-xs); line-height: 1.1; }
+.fleet-card-year { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 3px; text-transform: uppercase; color: var(--white-ghost); margin-bottom: var(--spacing-sm); }
+
+.fleet-card-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: var(--spacing-sm) 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: var(--spacing-sm); }
+.fleet-spec { display: flex; align-items: center; gap: 8px; }
+.fleet-spec svg { width: 14px; height: 14px; stroke: var(--white-ghost); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.fleet-spec-label { font-family: var(--font-condensed); font-size: var(--size-xs); color: var(--white-ghost); letter-spacing: 0.5px; }
+.fleet-spec-val   { font-family: var(--font-condensed); font-size: var(--size-xs); color: var(--white-muted); font-weight: 500; display: block; margin-top: 1px; }
+
+.fleet-card-features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--spacing-sm); }
+.fleet-feature-tag { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--white-ghost); background: rgba(245,245,247,0.03); border: 1px solid var(--glass-border); padding: 3px 10px; }
+.fleet-card-footer { display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; padding-top: var(--spacing-sm); }
+
+/* Car Modal */
+.car-modal { position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: var(--spacing-md); }
+.car-modal.open { display: flex; }
+.car-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: var(--glass-blur); }
+.car-modal-box { position: relative; z-index: 1; background: #181818; border: 1px solid var(--glass-border); width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; animation: modalEnter 0.3s ease; }
+@keyframes modalEnter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.car-modal-close { position: absolute; top: var(--spacing-sm); right: var(--spacing-sm); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); cursor: pointer; z-index: 2; transition: all var(--transition-fast); }
+.car-modal-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.car-modal-close svg { width: 16px; height: 16px; stroke: var(--white-pure); fill: none; stroke-width: 1.5; }
+.modal-hero-img { width: 100%; height: 300px; object-fit: cover; }
+.modal-body { padding: var(--spacing-lg); }
+.modal-car-name { font-family: var(--font-display); font-size: clamp(var(--size-2xl), 4vw, 48px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: var(--spacing-xs); }
+.modal-car-desc { color: var(--white-dim); font-size: var(--size-base); line-height: 1.8; margin-bottom: var(--spacing-lg); max-width: 600px; }
+.modal-specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--glass-border); border: 1px solid var(--glass-border); margin-bottom: var(--spacing-lg); }
+.modal-spec { background: #181818; padding: var(--spacing-md); text-align: center; }
+.modal-spec-label { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--white-ghost); margin-bottom: 6px; }
+.modal-spec-val   { font-family: var(--font-display); font-size: var(--size-xl); font-weight: 600; color: var(--white-pure); }
+.modal-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--glass-border); }
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-section { background: #0a0a0a; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-intro-label { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 4px; text-transform: uppercase; color: var(--white-dim); margin-bottom: var(--spacing-sm); }
+.contact-intro-title { font-family: var(--font-display); font-size: clamp(var(--size-3xl), 5vw, 60px); font-weight: 700; letter-spacing: -1px; line-height: 1.05; margin-bottom: var(--spacing-md); }
+.contact-details { margin: var(--spacing-lg) 0; }
+.contact-detail { display: flex; align-items: flex-start; gap: var(--spacing-md); padding: var(--spacing-md) 0; border-bottom: 1px solid var(--glass-border); }
+.contact-detail:first-child { border-top: 1px solid var(--glass-border); }
+.contact-detail-icon { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-detail-icon svg { width: 18px; height: 18px; stroke: var(--white-muted); fill: none; stroke-width: 1.5; }
+.contact-detail-label { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--white-ghost); margin-bottom: 4px; }
+.contact-detail-val   { font-size: var(--size-sm); color: var(--white-muted); line-height: 1.5; }
+.contact-hours { margin-top: var(--spacing-md); padding: var(--spacing-md); background: var(--grad-glass); border: 1px solid var(--glass-border); }
+.contact-hours h4 { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 3px; text-transform: uppercase; color: var(--white-dim); margin-bottom: var(--spacing-sm); }
+.hours-row { display: flex; justify-content: space-between; font-size: var(--size-sm); color: var(--white-dim); padding: 6px 0; border-bottom: 1px solid var(--glass-border); }
+.hours-row:last-child { border-bottom: none; }
+.hours-row span:last-child { color: var(--white-muted); }
+
+.contact-form-wrap { padding: var(--spacing-lg); background: var(--glass-bg); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); position: relative; }
+.contact-form-wrap::before { content: ''; position: absolute; top: 0; right: 0; width: 60px; height: 2px; background: var(--white-ghost); }
+.contact-form-title { font-family: var(--font-display); font-size: var(--size-2xl); font-weight: 700; letter-spacing: 0.5px; margin-bottom: var(--spacing-xs); }
+.contact-form-sub   { font-size: var(--size-sm); color: var(--white-dim); margin-bottom: var(--spacing-lg); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: #050505;
+  background-image: linear-gradient(to bottom, #080808 0%, #050505 60px, #050505 100%);
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+.footer-top { padding: var(--spacing-xl) 0; border-bottom: 1px solid var(--glass-border); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--spacing-xl); }
+.footer-brand .footer-logo { height: 40px; width: auto; filter: brightness(0) invert(1); margin-bottom: var(--spacing-md); display: block; }
+.footer-brand p { font-size: var(--size-sm); color: var(--white-ghost); line-height: 1.8; max-width: 300px; margin-bottom: var(--spacing-md); }
+.footer-socials { display: flex; gap: var(--spacing-xs); }
+.social-btn { width: 38px; height: 38px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; transition: all var(--transition-fast); cursor: pointer; }
+.social-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.social-btn svg { width: 14px; height: 14px; stroke: var(--white-dim); fill: none; stroke-width: 1.5; transition: stroke var(--transition-fast); }
+.social-btn:hover svg { stroke: var(--white-pure); }
+.footer-col-title { font-family: var(--font-condensed); font-size: var(--size-xs); font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--white-pure); margin-bottom: var(--spacing-md); }
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-link { font-size: var(--size-sm); color: var(--white-ghost); transition: color var(--transition-fast); cursor: pointer; }
+.footer-link:hover { color: var(--white-muted); }
+.footer-bottom { padding: var(--spacing-md) 0; display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-md); flex-wrap: wrap; }
+.footer-copy { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 1px; color: var(--white-ghost); }
+.footer-legal { display: flex; gap: var(--spacing-md); }
+.footer-legal a { font-family: var(--font-condensed); font-size: var(--size-xs); letter-spacing: 1px; color: var(--white-ghost); cursor: pointer; transition: color var(--transition-fast); }
+.footer-legal a:hover { color: var(--white-muted); }
+
+/* Scroll to top */
+.scroll-top { position: fixed; bottom: var(--spacing-lg); right: var(--spacing-lg); width: 48px; height: 48px; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all var(--transition-mid); z-index: 500; }
+.scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.scroll-top:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.scroll-top svg { width: 18px; height: 18px; stroke: var(--white-muted); fill: none; stroke-width: 1.5; transition: stroke var(--transition-fast); }
+.scroll-top:hover svg { stroke: var(--white-pure); }
+
+/* ============================================================
+   OVERLAY MODALS
+   ============================================================ */
+.overlay-modal { position: fixed; inset: 0; z-index: 20000; background: rgba(0,0,0,0.92); backdrop-filter: var(--glass-blur); display: none; align-items: center; justify-content: center; padding: var(--spacing-md); }
+.overlay-modal.open { display: flex; }
+.overlay-box { background: #181818; border: 1px solid var(--glass-border); padding: var(--spacing-xl); max-width: 560px; width: 100%; position: relative; animation: modalEnter 0.3s ease; }
+.overlay-close { position: absolute; top: var(--spacing-md); right: var(--spacing-md); width: 36px; height: 36px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--transition-fast); }
+.overlay-close:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.overlay-close svg { width: 14px; height: 14px; stroke: var(--white-muted); fill: none; stroke-width: 1.5; }
+.overlay-close:hover svg { stroke: var(--white-pure); }
+.overlay-title { font-family: var(--font-display); font-size: var(--size-3xl); font-weight: 700; margin-bottom: var(--spacing-md); letter-spacing: -0.5px; }
+.overlay-text { font-size: var(--size-sm); color: var(--white-dim); line-height: 1.9; margin-bottom: var(--spacing-sm); }
+.overlay-text strong { color: var(--white-muted); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .fleet-grid    { grid-template-columns: repeat(2, 1fr); }
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+  .stat-item     { border-bottom: 1px solid var(--glass-border); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg); }
+  .how-grid::before { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { gap: 48px; }
+}
+
+@media (max-width: 900px) {
+  :root { --header-h: 68px; }
+  .main-nav { display: none; }
+  .hamburger { display: flex; }
+  .header-cta { display: none; }
+  .hero-content { padding-bottom: var(--spacing-xl); }
+  .hero-stats-bar { max-width: 100%; }
+  .hero-scroll { display: none; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-visual { height: 380px; }
+  .booking-wrap { grid-template-columns: 1fr; gap: var(--spacing-xl); }
+  .testimonial-slide { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--spacing-xl); }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --spacing-xl: 48px;
+    --spacing-2xl: 72px;
+    --spacing-3xl: 96px;
+  }
+  .container { padding: 0 var(--spacing-md); }
+  .hero-content {
+    padding-top: calc(var(--header-h) + var(--spacing-md));
+    padding-bottom: calc(var(--spacing-2xl) + 32px);
+  }
+  .hero-h1 { font-size: clamp(44px, 12vw, 72px); letter-spacing: -1px; margin-bottom: var(--spacing-md); }
+  .hero-sub { font-size: var(--size-base); margin-bottom: var(--spacing-md); }
+  .hero-actions { gap: 12px; margin-bottom: var(--spacing-lg); }
+  .hero-stats-bar { flex-direction: column; gap: 0; border-top: 1px solid var(--glass-border); padding-top: var(--spacing-md); }
+  .hero-stat { border-right: none; border-bottom: 1px solid var(--glass-border); padding: 14px 0; text-align: center; }
+  .hero-stat:last-child { border-bottom: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-grid { grid-template-columns: 1fr; }
+  .fleet-grid { grid-template-columns: 1fr; }
+  .modal-specs-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .booking-form-card { padding: var(--spacing-md); }
+}
+
+@media (max-width: 480px) {
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .cta-inner .btn    { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.mt-0  { margin-top: 0; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.text-dim   { color: var(--white-dim); }
+.text-ghost { color: var(--white-ghost); }
+.text-white { color: var(--white-pure); }
+.text-center { text-align: center; }
+.text-grad {
+  background: var(--grad-white-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.flex-wrap { flex-wrap: wrap; }
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page.active { animation: pageFade 0.4s ease forwards; }
+</style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">
+    <img src="autorent logo.png" alt="AutoRent" onerror="this.style.display='none'">
+  </div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+
+    <a href="#" class="site-logo" data-nav="home">
+      <img src="autorent logo.png" alt="AutoRent" onerror="this.style.display='none'">
+    </a>
+
+    <nav class="main-nav" role="navigation">
+      <a class="nav-link active" data-nav="home">Home</a>
+      <a class="nav-link" data-nav="fleet">Fleet</a>
+      <a class="nav-link" data-nav="home" data-anchor="how-it-works">How it works</a>
+      <a class="nav-link" data-nav="home" data-anchor="testimonials">Reviews</a>
+      <a class="nav-link" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-outline btn-sm" data-nav="fleet">Browse fleet</a>
+      <a class="btn btn-primary btn-sm" data-nav="home" data-anchor="booking">Reserve now</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-menu-topbar">
+      <span class="mobile-menu-logo">AUTORENT</span>
+      <button class="mobile-menu-close" id="close-menu" aria-label="Close menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu-content">
+      <a class="mobile-nav-link" data-nav="home">Home</a>
+      <a class="mobile-nav-link" data-nav="fleet">Fleet</a>
+      <a class="mobile-nav-link" data-nav="home" data-anchor="how-it-works">How It Works</a>
+      <a class="mobile-nav-link" data-nav="home" data-anchor="testimonials">Reviews</a>
+      <a class="mobile-nav-link" data-nav="contact">Contact</a>
+    </div>
+
+    <div class="mobile-menu-bottom">
+      <div class="mobile-menu-contact">Ready to drive?</div>
+      <a class="btn btn-primary btn-full" data-nav="home" data-anchor="booking">Reserve Now →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- PAGES WRAPPER -->
+<main id="app">
+
+  <!-- HOME PAGE -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="hero-video-wrap">
+        <div class="hero-video-fallback"></div>
+        <video class="hero-video" id="hero-video"
+          autoplay muted loop playsinline
+          preload="auto"
+          <source src="hero background.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-lines"></div>
+
+      <div class="container hero-content">
+        <h1 class="hero-h1">
+          Drive<br>
+          <span class="word-grad">Excellence</span><br>
+          <span class="word-thin">Anywhere.</span>
+        </h1>
+        <p class="hero-sub">
+          Handpicked fleet of luxury, SUV, and economy vehicles across Lagos and Nigeria. Transparent pricing, zero hidden fees, 24/7 concierge support.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-nav="fleet">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Browse Fleet
+          </a>
+          <a class="btn btn-outline" data-nav="home" data-anchor="booking">Reserve Now</a>
+        </div>
+        <div class="hero-stats-bar">
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="500">0</div>
+            <div class="hero-stat-label">Vehicles delivered</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="16">0</div>
+            <div class="hero-stat-label">Premium models</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="3">0</div>
+            <div class="hero-stat-label">Lagos hubs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        <span class="hero-scroll-label">Scroll</span>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-section" aria-hidden="true">
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
+
+    <!-- WHY AUTORENT -->
+    <section class="section-pad why-section">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-visual reveal reveal-left">
+            <img class="why-img-main" src="AutoRent Luxury Fleet.jpg" alt="AutoRent Luxury Fleet" loading="lazy">
+            <img class="why-img-accent" src="AutoRent Interior.jpg" alt="Interior" loading="lazy">
+            <div class="why-badge">
+              <div class="why-badge-num" data-count="98">0</div>
+              <div class="why-badge-label">Client Satisfaction %</div>
+            </div>
+          </div>
+
+          <div class="why-content reveal reveal-right">
+            <div class="section-label left">Why AutoRent</div>
+            <h2 class="section-title">Built for the Nigerian road.<br><span class="text-grad">Driven by excellence.</span></h2>
+            <p class="section-desc">
+              AutoRent is Lagos' most trusted car rental service — combining international standards with deep local knowledge. Every vehicle is fully insured, meticulously maintained, and available on your schedule.
+            </p>
+
+            <div class="why-features">
+              <div class="why-feature">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="why-feature-body">
+                  <h4>Fully Insured Fleet</h4>
+                  <p>Every vehicle in our fleet carries comprehensive insurance coverage. Drive with complete peace of mind on any road.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="why-feature-body">
+                  <h4>24/7 Concierge Support</h4>
+                  <p>Our Lagos-based support team is available around the clock. One call, and we're on it — wherever you are in Nigeria.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="why-feature-body">
+                  <h4>Transparent Pricing</h4>
+                  <p>No hidden fees, no surprises. The price you see is the price you pay — stated clearly in naira before you commit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <span class="stat-num" data-count="2400">0</span>
+            <span class="stat-label">Trips completed</span>
+          </div>
+          <div class="stat-item reveal delay-1">
+            <span class="stat-num" data-count="16">0</span>
+            <span class="stat-label">Vehicle models</span>
+          </div>
+          <div class="stat-item reveal delay-2">
+            <span class="stat-num" data-count="98">0</span>
+            <span class="stat-label">Satisfaction rate %</span>
+          </div>
+          <div class="stat-item reveal delay-3">
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">Lagos hubs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED CARS -->
+    <section class="section-pad featured-section">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <div class="section-label">Our Fleet</div>
+          <h2 class="section-title">Featured Vehicles</h2>
+          <p class="section-desc">A curated selection of our most popular vehicles — maintained to the highest standard and ready for the road.</p>
+        </div>
+        <div class="featured-grid" id="featured-grid"></div>
+        <div class="text-center mt-xl reveal">
+          <a class="btn btn-outline" data-nav="fleet">
+            View Full Fleet
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="section-pad booking-section" id="booking">
+      <div class="container">
+        <div class="booking-wrap">
+          <div class="reveal reveal-left">
+            <div class="booking-info-label">Quick Reservation</div>
+            <h2 class="booking-info-title">Start your<br><span class="text-grad">journey today</span></h2>
+            <p class="booking-info-desc">
+              Fill in your details and our concierge team will confirm availability and reach out within 60 minutes with a tailored quote.
+            </p>
+            <div class="booking-perks">
+              <div class="booking-perk">
+                <div class="perk-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                No booking fee or deposit required
+              </div>
+              <div class="booking-perk">
+                <div class="perk-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Free delivery within Victoria Island &amp; Lekki
+              </div>
+              <div class="booking-perk">
+                <div class="perk-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Flexible cancellation up to 24 hours
+              </div>
+              <div class="booking-perk">
+                <div class="perk-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Nationwide delivery available
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-right">
+            <div class="booking-form-card">
+              <form id="booking-form" autocomplete="off">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bf-pickup">Pickup Location</label>
+                    <div class="form-select-wrap">
+                      <select class="form-control" id="bf-pickup" required>
+                        <option value="">Select location</option>
+                        <option>Murtala Muhammed Airport (MMA2)</option>
+                        <option>Victoria Island, Lagos</option>
+                        <option>Lekki Phase 1, Lagos</option>
+                        <option>Ikeja, Lagos</option>
+                        <option>Abuja — Nnamdi Azikiwe Airport</option>
+                        <option>Port Harcourt International</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bf-car">Vehicle Class</label>
+                    <div class="form-select-wrap">
+                      <select class="form-control" id="bf-car" required>
+                        <option value="">Choose class</option>
+                        <option>Economy</option>
+                        <option>Sedan</option>
+                        <option>SUV</option>
+                        <option>Luxury</option>
+                        <option>Minivan / MPV</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bf-from">Pickup Date</label>
+                    <input class="form-control" type="date" id="bf-from" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bf-to">Return Date</label>
+                    <input class="form-control" type="date" id="bf-to" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bf-name">Full Name</label>
+                    <input class="form-control" type="text" id="bf-name" placeholder="John Adeyemi" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bf-phone">Phone Number</label>
+                    <input class="form-control" type="tel" id="bf-phone" placeholder="+234 8XX XXX XXXX" required>
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-group">
+                    <label class="form-label" for="bf-extras">Special requests</label>
+                    <input class="form-control" type="text" id="bf-extras" placeholder="e.g. Airport pickup, extra driver...">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  Check Availability
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <p class="form-msg" id="booking-msg"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-pad how-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <div class="section-label">Simple Process</div>
+          <h2 class="section-title">Rent in four steps</h2>
+          <p class="section-desc">From selection to keys in hand — our process is designed to be effortless.</p>
+        </div>
+        <div class="how-grid">
+          <div class="how-step reveal delay-1">
+            <div class="how-step-num"><span>01</span></div>
+            <h3>Choose Your Car</h3>
+            <p>Browse our curated fleet and select the vehicle that fits your trip, style, and budget — economy to luxury.</p>
+          </div>
+          <div class="how-step reveal delay-2">
+            <div class="how-step-num"><span>02</span></div>
+            <h3>Submit Request</h3>
+            <p>Fill in your pickup location, dates, and contact details. Our team reviews your request immediately.</p>
+          </div>
+          <div class="how-step reveal delay-3">
+            <div class="how-step-num"><span>03</span></div>
+            <h3>Confirm &amp; Pay</h3>
+            <p>Receive a confirmation with final pricing. Pay securely via transfer, card, or approved payment channels.</p>
+          </div>
+          <div class="how-step reveal delay-4">
+            <div class="how-step-num"><span>04</span></div>
+            <h3>Drive Away</h3>
+            <p>Pick up your vehicle at our hub or we deliver it to you. Hit the road with full insurance and 24/7 backup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-pad testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <div class="section-label">Trusted by Drivers</div>
+          <h2 class="section-title">What our clients say</h2>
+        </div>
+        <div class="testimonials-wrap reveal">
+          <div class="testimonials-track" id="testimonials-track"></div>
+          <div class="testimonials-controls">
+            <button class="carousel-btn" id="prev-btn" aria-label="Previous">
+              <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <button class="carousel-btn" id="next-btn" aria-label="Next">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-text reveal">
+            <h2>Ready to hit<br>the road?</h2>
+            <p>Reserve your vehicle in minutes. No booking fee required.</p>
+          </div>
+          <div class="reveal delay-2">
+            <a class="btn btn-primary" data-nav="home" data-anchor="booking">
+              Reserve Now
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="cta-bg-text" aria-hidden="true">Drive</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-home -->
+
+
+  <!-- FLEET PAGE -->
+  <div class="page" id="page-fleet">
+    <div class="fleet-hero">
+      <img class="fleet-hero-bg" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1400&q=80" alt="" aria-hidden="true">
+      <div class="container fleet-hero-content">
+        <div class="section-label left">AutoRent Fleet</div>
+        <h1 class="fleet-page-title">
+          Choose<br>Your<br><span class="text-grad">Drive</span>
+        </h1>
+        <p class="fleet-page-desc">
+          From fuel-efficient city cars to commanding luxury SUVs — every vehicle is fully maintained, insured, and ready for Nigeria's roads.
+        </p>
+      </div>
+    </div>
+
+    <div class="fleet-filters" id="fleet-filters">
+      <div class="container">
+        <div class="fleet-filters-inner">
+          <button class="filter-tab active" data-filter="all">All Vehicles</button>
+          <button class="filter-tab" data-filter="economy">Economy</button>
+          <button class="filter-tab" data-filter="sedan">Sedan</button>
+          <button class="filter-tab" data-filter="suv">SUV</button>
+          <button class="filter-tab" data-filter="luxury">Luxury</button>
+          <button class="filter-tab" data-filter="mpv">MPV</button>
+          <span class="fleet-count" id="fleet-count">16 vehicles</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-pad fleet-section">
+      <div class="container">
+        <div class="fleet-grid" id="fleet-grid"></div>
+      </div>
+    </section>
+  </div><!-- /page-fleet -->
+
+
+  <!-- CONTACT PAGE -->
+  <div class="page" id="page-contact">
+    <div style="height: var(--header-h);"></div>
+    <section class="section-pad contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal reveal-left">
+            <div class="contact-intro-label">Get in touch</div>
+            <h1 class="contact-intro-title">Let's get<br>you moving.</h1>
+            <p class="section-desc">
+              Whether you're planning a business trip, airport transfer, or a weekend away — our team is ready to put you in the right car.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 2.22h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-detail-label">Call / WhatsApp</div>
+                  <div class="contact-detail-val">+234 812 345 6789<br>+234 903 456 7890</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="contact-detail-label">Email</div>
+                  <div class="contact-detail-val">reservations@autorentng.com<br>support@autorentng.com</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contact-detail-label">Head Office</div>
+                  <div class="contact-detail-val">23a Ozumba Mbadiwe Avenue<br>Victoria Island, Lagos 101241</div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-hours">
+              <h4>Operating Hours</h4>
+              <div class="hours-row"><span>Monday – Friday</span><span>7:00 AM – 10:00 PM</span></div>
+              <div class="hours-row"><span>Saturday</span><span>8:00 AM – 9:00 PM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>9:00 AM – 7:00 PM</span></div>
+              <div class="hours-row"><span>Emergency Support</span><span>24 / 7</span></div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-right">
+            <div class="contact-form-wrap">
+              <h2 class="contact-form-title">Send a message</h2>
+              <p class="contact-form-sub">We respond within 60 minutes during business hours.</p>
+              <form id="contact-form" autocomplete="off">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cf-name">Full Name</label>
+                    <input class="form-control" type="text" id="cf-name" placeholder="Your full name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cf-phone">Phone Number</label>
+                    <input class="form-control" type="tel" id="cf-phone" placeholder="+234 8XX XXX XXXX" required>
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-group">
+                    <label class="form-label" for="cf-email">Email Address</label>
+                    <input class="form-control" type="email" id="cf-email" placeholder="you@example.com">
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-group">
+                    <label class="form-label" for="cf-subject">Subject</label>
+                    <div class="form-select-wrap">
+                      <select class="form-control" id="cf-subject">
+                        <option>Vehicle availability enquiry</option>
+                        <option>Airport pickup booking</option>
+                        <option>Corporate account</option>
+                        <option>Fleet pricing &amp; partnership</option>
+                        <option>Complaint or feedback</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-group">
+                    <label class="form-label" for="cf-msg">Message</label>
+                    <textarea class="form-control" id="cf-msg" rows="5" placeholder="Tell us what you need..."></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  Send Message
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+                <p class="form-msg" id="contact-msg"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-contact -->
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="autorent logo.png" class="footer-logo" alt="AutoRent" onerror="this.style.display='none'">
+          <p>AutoRent is Lagos' premium vehicle rental service — built on reliability, transparency, and a deep commitment to getting you where you need to go, in style.</p>
+          <div class="footer-socials">
+            <a class="social-btn" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+            </a>
+            <a class="social-btn" href="#" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4"/></svg>
+            </a>
+            <a class="social-btn" href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a class="social-btn" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Fleet</div>
+          <div class="footer-links">
+            <a class="footer-link" data-nav="fleet" data-filter="economy">Economy Cars</a>
+            <a class="footer-link" data-nav="fleet" data-filter="sedan">Sedans</a>
+            <a class="footer-link" data-nav="fleet" data-filter="suv">SUVs</a>
+            <a class="footer-link" data-nav="fleet" data-filter="luxury">Luxury Vehicles</a>
+            <a class="footer-link" data-nav="fleet" data-filter="mpv">MPV / Minivans</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a class="footer-link" data-nav="home" data-anchor="booking">Airport Transfers</a>
+            <a class="footer-link" data-nav="home" data-anchor="booking">Corporate Rentals</a>
+            <a class="footer-link" data-nav="home" data-anchor="booking">Wedding Cars</a>
+            <a class="footer-link" data-nav="home" data-anchor="booking">Chauffeur Service</a>
+            <a class="footer-link" data-nav="home" data-anchor="booking">Long-Term Lease</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a class="footer-link" data-nav="home" data-anchor="how-it-works">How it works</a>
+            <a class="footer-link" data-nav="contact">Contact Us</a>
+            <a class="footer-link" id="footer-privacy-link">Privacy Policy</a>
+            <a class="footer-link" id="footer-terms-link">Terms of Service</a>
+            <a class="footer-link" id="footer-cancel-link">Cancellation Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© <span id="footer-year"></span> AutoRent Nigeria Ltd. All rights reserved.</div>
+      <div class="footer-legal">
+        <a id="fl-privacy">Privacy</a>
+        <a id="fl-terms">Terms</a>
+        <a id="fl-cancel">Cancellation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- Privacy Modal -->
+<div class="overlay-modal" id="modal-privacy">
+  <div class="overlay-box">
+    <button class="overlay-close" data-close="modal-privacy">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 class="overlay-title">Privacy Policy</h2>
+    <p class="overlay-text">AutoRent Nigeria Ltd collects personal information strictly for the purpose of processing your reservation and communicating with you regarding your rental.</p>
+    <p class="overlay-text"><strong>Data we collect:</strong> Name, phone number, email address, driver's licence details, and trip preferences.</p>
+    <p class="overlay-text"><strong>How we use it:</strong> To process bookings, provide support, and improve our service. We never sell or share your data with third parties for marketing purposes.</p>
+    <p class="overlay-text"><strong>Security:</strong> All data is stored on encrypted servers compliant with the Nigeria Data Protection Regulation (NDPR) 2019.</p>
+    <p class="overlay-text"><strong>Your rights:</strong> You may request access to, correction of, or deletion of your personal data at any time by contacting <em>privacy@autorentng.com</em>.</p>
+    <div style="margin-top: var(--spacing-lg);">
+      <button class="btn btn-primary" data-close="modal-privacy">I understand</button>
+    </div>
+  </div>
+</div>
+
+<!-- Terms Modal -->
+<div class="overlay-modal" id="modal-terms">
+  <div class="overlay-box">
+    <button class="overlay-close" data-close="modal-terms">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 class="overlay-title">Terms of Service</h2>
+    <p class="overlay-text"><strong>Eligibility:</strong> Drivers must hold a valid Nigerian or international driver's licence and be at least 21 years of age. A valid NIN or national ID is required at pickup.</p>
+    <p class="overlay-text"><strong>Rental period:</strong> All rentals are calculated on a 24-hour basis. Late returns beyond 2 hours incur an additional day's charge.</p>
+    <p class="overlay-text"><strong>Fuel policy:</strong> Vehicles are provided with a full tank and must be returned full. Fuel deficits are charged at market rate plus ₦2,500 service fee.</p>
+    <p class="overlay-text"><strong>Liability:</strong> AutoRent is not liable for personal property left in vehicles. Drivers are responsible for traffic fines incurred during their rental period.</p>
+    <p class="overlay-text"><strong>Insurance:</strong> Comprehensive third-party insurance is included. Full coverage upgrades are available at booking.</p>
+    <div style="margin-top: var(--spacing-lg);">
+      <button class="btn btn-primary" data-close="modal-terms">I understand</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cancellation Modal -->
+<div class="overlay-modal" id="modal-cancel">
+  <div class="overlay-box">
+    <button class="overlay-close" data-close="modal-cancel">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h2 class="overlay-title">Cancellation Policy</h2>
+    <p class="overlay-text"><strong>48+ hours before pickup:</strong> Full refund with no cancellation fee.</p>
+    <p class="overlay-text"><strong>24–48 hours before pickup:</strong> 50% refund of total booking value.</p>
+    <p class="overlay-text"><strong>Under 24 hours before pickup:</strong> No refund. A credit note valid for 90 days may be issued at management's discretion.</p>
+    <p class="overlay-text"><strong>No-show:</strong> Treated as a cancellation under 24 hours. The vehicle will be released after 2 hours of the agreed pickup time.</p>
+    <p class="overlay-text">To cancel, contact us via WhatsApp on +234 812 345 6789 or email <em>reservations@autorentng.com</em>.</p>
+    <div style="margin-top: var(--spacing-lg);">
+      <button class="btn btn-primary" data-close="modal-cancel">I understand</button>
+    </div>
+  </div>
+</div>
+
+<!-- Car Detail Modal -->
+<div class="car-modal" id="car-modal">
+  <div class="car-modal-backdrop" id="car-modal-backdrop"></div>
+  <div class="car-modal-box" id="car-modal-box">
+    <button class="car-modal-close" id="car-modal-close">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const CARS = [
+  { id:1, name:'Toyota Corolla', year:2022, category:'economy', transmission:'Automatic', fuel:'Petrol', seats:5, doors:4, engine:'1.8L', price:25000, mileage:'Unlimited', availability:'available', features:['Air Conditioning','Bluetooth','Backup Camera','USB Charging'], img:'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80', desc:'The Toyota Corolla is our most popular economy vehicle — reliable, fuel-efficient, and comfortable for both city driving and inter-state trips across Nigeria.' },
+  { id:2, name:'Kia Picanto', year:2023, category:'economy', transmission:'Automatic', fuel:'Petrol', seats:4, doors:4, engine:'1.2L', price:15000, mileage:'Unlimited', availability:'available', features:['Air Conditioning','Bluetooth','Keyless Entry'], img:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80', desc:'Our most affordable offering — perfect for solo travel and city commuting. Compact, nimble, and easy to park on Lagos island streets.' },
+  { id:3, name:'Honda Accord', year:2022, category:'sedan', transmission:'CVT', fuel:'Petrol', seats:5, doors:4, engine:'1.5T', price:35000, mileage:'Unlimited', availability:'available', features:['Sunroof','Apple CarPlay','Lane Assist','Heated Seats'], img:'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=900&q=80', desc:'The Honda Accord offers executive comfort at a mid-range price. A firm favourite for business travellers and discerning professionals.' },
+  { id:4, name:'Toyota Camry', year:2023, category:'sedan', transmission:'Automatic', fuel:'Petrol', seats:5, doors:4, engine:'2.5L', price:42000, mileage:'Unlimited', availability:'available', features:['Sunroof','Android Auto','Adaptive Cruise','Premium Audio'], img:'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80', desc:'A refined sedan that commands respect. The Toyota Camry combines smooth ride quality with modern technology — ideal for client meetings and airport runs.' },
+  { id:5, name:'Hyundai Sonata', year:2022, category:'sedan', transmission:'Automatic', fuel:'Petrol', seats:5, doors:4, engine:'2.0L', price:30000, mileage:'Unlimited', availability:'available', features:['Wireless Charging','Blind Spot Monitor','Heated Mirrors'], img:'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80', desc:'The Hyundai Sonata brings thoughtful design and a spacious interior to the mid-size sedan segment. Great value for a premium driving experience.' },
+  { id:6, name:'Toyota Highlander', year:2023, category:'suv', transmission:'8-Speed Auto', fuel:'Petrol', seats:7, doors:5, engine:'3.5L V6', price:65000, mileage:'Unlimited', availability:'available', features:['7-Seater','4WD','Panoramic Sunroof','Third Row AC'], img:'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=80', desc:'A commanding 7-seater SUV that handles Lagos traffic and highway driving with equal confidence. Ideal for family trips and group transfers.' },
+  { id:7, name:'Hyundai Tucson', year:2023, category:'suv', transmission:'Automatic', fuel:'Petrol', seats:5, doors:5, engine:'2.5L', price:42000, mileage:'Unlimited', availability:'available', features:['Panoramic View Monitor','Smart Cruise','Ventilated Seats'], img:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80', desc:'The Hyundai Tucson is a stylish mid-size SUV with excellent ground clearance and a smooth city ride — equally at home in Lekki and on expressways.' },
+  { id:8, name:'Toyota Land Cruiser', year:2022, category:'suv', transmission:'10-Speed Auto', fuel:'V8 Diesel', seats:7, doors:5, engine:'4.5L V8', price:95000, mileage:'Unlimited', availability:'limited', features:['Terrain Select','Air Suspension','Cooler Box','Night Vision'], img:'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80', desc:'The definitive Nigerian road vehicle. The Land Cruiser\'s legendary durability and 4x4 capability make it unmatched for executive inter-state travel.' },
+  { id:9, name:'Kia Sorento', year:2023, category:'suv', transmission:'Automatic', fuel:'Petrol', seats:7, doors:5, engine:'2.5L', price:55000, mileage:'Unlimited', availability:'available', features:['7-Seater','Bose Sound System','Head-Up Display','Digital Cluster'], img:'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=900&q=80', desc:'Premium SUV comfort with 7-seat versatility. The Kia Sorento pairs cutting-edge technology with a refined interior — a class act at its price point.' },
+  { id:10, name:'Mercedes-Benz E-Class', year:2023, category:'luxury', transmission:'9G-Tronic', fuel:'Premium Petrol', seats:5, doors:4, engine:'2.0T AMG', price:120000, mileage:'Unlimited', availability:'available', features:['Burmester Sound','Massage Seats','MBUX AI','Ambient Lighting'], img:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80', desc:'The epitome of business-class motoring. The Mercedes-Benz E-Class delivers a flawless cabin experience, advanced technology, and unmistakable presence.' },
+  { id:11, name:'Lexus RX 350', year:2023, category:'luxury', transmission:'8-Speed Auto', fuel:'Hybrid', seats:5, doors:5, engine:'3.5L Hybrid', price:110000, mileage:'Unlimited', availability:'available', features:['Mark Levinson Audio','Panoramic Sunroof','Semi-Aniline Leather','Safety Sense'], img:'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80', desc:'A luxury crossover with the legendary Lexus reliability and a stunning hybrid powertrain. Effortlessly refined for executive use across Lagos and beyond.' },
+  { id:12, name:'Range Rover Sport', year:2023, category:'luxury', transmission:'8-Speed Auto AWD', fuel:'Diesel', seats:5, doors:5, engine:'3.0L D300', price:130000, mileage:'Unlimited', availability:'limited', features:['Air Suspension','Meridian Sound','Pivi Pro Infotainment','Terrain Response 2'], img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=900&q=80', desc:'The Range Rover Sport commands attention everywhere it goes. Its combination of luxury, off-road capability, and performance is unmatched in its class.' },
+  { id:13, name:'BMW 5 Series', year:2022, category:'luxury', transmission:'8-Speed Steptronic', fuel:'Premium Petrol', seats:5, doors:4, engine:'2.0T 530i', price:115000, mileage:'Unlimited', availability:'available', features:['Harman Kardon Audio','Gesture Control','Laser Headlights','BMW Live Cockpit'], img:'https://images.unsplash.com/photo-1617531653332-bd46c16f4d68?auto=format&fit=crop&w=900&q=80', desc:'The driver\'s executive sedan. The BMW 5 Series combines dynamic performance with first-class comfort — the ideal choice for those who refuse to compromise.' },
+  { id:14, name:'Peugeot 3008', year:2023, category:'suv', transmission:'Automatic EAT8', fuel:'Petrol', seats:5, doors:5, engine:'1.6T PureTech', price:38000, mileage:'Unlimited', availability:'available', features:['3D i-Cockpit','Focal Sound System','Active Safety Brake','Grip Control'], img:'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80', desc:'A distinctly European SUV with avant-garde design and a driver-focused interior. The Peugeot 3008 stands out on Lagos roads for all the right reasons.' },
+  { id:15, name:'Toyota Sienna', year:2022, category:'mpv', transmission:'CVT', fuel:'Hybrid', seats:8, doors:5, engine:'2.5L Hybrid', price:70000, mileage:'Unlimited', availability:'available', features:['8-Seater','Dual Power Sliding Doors','Tri-Zone AC','Rear Entertainment'], img:'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80', desc:'The ultimate family and group transport solution. The Toyota Sienna Hybrid seats 8 in spacious comfort with ample luggage capacity for any journey.' },
+  { id:16, name:'Kia Carnival', year:2023, category:'mpv', transmission:'Automatic', fuel:'Diesel', seats:8, doors:5, engine:'2.2L CRDi', price:62000, mileage:'Unlimited', availability:'available', features:['8-Seater','VIP Second Row','Wireless Charging','Dual Sunroof'], img:'https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=900&q=80', desc:'The Kia Carnival redefines what a people-carrier can be. Luxury-grade seating, incredible space, and premium technology make it perfect for corporate group transfers.' }
+];
+
+const TESTIMONIALS = [
+  [
+    { name:'Adaobi Nwosu', role:'Business Executive, Victoria Island', img:'https://randomuser.me/api/portraits/women/44.jpg', rating:5, text:'AutoRent has completely changed how I handle business travel in Lagos. The Range Rover Sport was immaculate, and their team delivered it to my office on time. Absolutely zero stress — I won\'t use anyone else.' },
+    { name:'Michael Okafor', role:'Managing Director, Abuja', img:'https://randomuser.me/api/portraits/men/32.jpg', rating:5, text:'I needed a vehicle for a three-day Abuja trip on very short notice. AutoRent had a Mercedes E-Class confirmed within the hour. Clean car, transparent pricing, professional service. This is how car rental should work.' }
+  ],
+  [
+    { name:'Chiamaka Eze', role:'Event Planner, Lekki', img:'https://randomuser.me/api/portraits/women/68.jpg', rating:5, text:'We used AutoRent for a wedding fleet — eight vehicles across two days. Impeccably coordinated, every car arrived on time and spotlessly clean. My clients were delighted. AutoRent is now my go-to for every event.' },
+    { name:'Emeka Adeyemi', role:'Tech Entrepreneur, Lagos', img:'https://randomuser.me/api/portraits/men/55.jpg', rating:4, text:'Solid service, fair prices, and a well-maintained fleet. The Toyota Camry I rented for a week was in excellent condition. Returning the car was painless too. I have recommended AutoRent to several colleagues already.' }
+  ],
+  [
+    { name:'Fatima Bello', role:'Consultant, Port Harcourt', img:'https://randomuser.me/api/portraits/women/31.jpg', rating:5, text:'The 24/7 support is genuinely 24/7. I had a tyre issue at 11pm on Ajah expressway and they had a replacement arranged within 45 minutes. That kind of service builds real loyalty. Excellent.' },
+    { name:'Tunde Oladipo', role:'Senior Partner, Law Firm', img:'https://randomuser.me/api/portraits/men/76.jpg', rating:5, text:'Our firm has a corporate account with AutoRent. The BMW 5 Series and Lexus RX we use for client entertainment are always impeccable. Billing is straightforward and disputes are handled professionally.' }
+  ]
+];
+
+const TICKER_ITEMS = [
+  'Economy Cars from ₦15,000 / day','Free delivery in Victoria Island & Lekki',
+  'Fully insured fleet','24/7 emergency support','Airport pickups available',
+  'Corporate accounts welcome','SUVs from ₦42,000 / day',
+  'Luxury vehicles from ₦110,000 / day','No hidden fees','Flexible cancellation policy',
+];
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+let currentPage = 'home';
+let currentFilter = 'all';
+let carouselIndex = 0;
+let carouselAutoTimer = null;
+
+function navigate(pageId, anchor, filter) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + pageId);
+  if (target) { target.classList.add('active'); currentPage = pageId; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  document.querySelectorAll('.nav-link').forEach(link => { link.classList.toggle('active', link.dataset.nav === pageId); });
+  if (pageId === 'fleet' && filter) applyFilter(filter);
+  if (anchor) { setTimeout(() => { const el = document.getElementById(anchor); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }, 100); }
+  closeMobileMenu();
+  triggerReveal();
+}
+
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-nav]');
+  if (!el) return;
+  e.preventDefault();
+  navigate(el.dataset.nav, el.dataset.anchor, el.dataset.filter);
+});
+
+/* ============================================================
+   MOBILE MENU — fade overlay + smooth slide
+   ============================================================ */
+const hamburger    = document.getElementById('hamburger');
+const mobileMenu   = document.getElementById('mobile-menu');
+const menuOverlay  = document.getElementById('menu-overlay');
+const closeBtn     = document.getElementById('close-menu');
+
+function openMobileMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  menuOverlay.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  menuOverlay.classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+closeBtn.addEventListener('click', closeMobileMenu);
+menuOverlay.addEventListener('click', closeMobileMenu);
+
+/* ============================================================
+   HEADER SCROLL
+   ============================================================ */
+const siteHeader = document.getElementById('site-header');
+const scrollTopBtn = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+  siteHeader.classList.toggle('scrolled', window.scrollY > 60);
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ============================================================
+   TICKER
+   ============================================================ */
+function buildTicker() {
+  const track = document.getElementById('ticker-track');
+  if (!track) return;
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  track.innerHTML = items.map(item => `<div class="ticker-item"><span class="ticker-dot"></span>${item}</div>`).join('');
+}
+
+/* ============================================================
+   COUNTER ANIMATION
+   ============================================================ */
+function animateCounter(el, target) {
+  const duration = 1800;
+  const start = performance.now();
+  function update(time) {
+    const elapsed = time - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased).toLocaleString();
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(update);
+}
+
+function initCounters() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        animateCounter(entry.target, parseInt(entry.target.dataset.count));
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+function triggerReveal() {
+  setTimeout(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+  }, 100);
+}
+
+/* ============================================================
+   CAR CARDS
+   ============================================================ */
+function buildCarCard(car) {
+  const badgeClass = { available:'badge-available', limited:'badge-limited', booked:'badge-booked' }[car.availability];
+  const badgeLabel = { available:'Available', limited:'Limited', booked:'Booked' }[car.availability];
+  const svgGear    = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+  const svgFuel    = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5h1a2 2 0 0 1 2 2v3a1 1 0 0 0 1 1h1"/><path d="M7 22V16h4v6"/></svg>`;
+  const svgPeople  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
+  return `<div class="car-card" data-car-id="${car.id}">
+    <div class="car-card-media">
+      <img class="car-card-img" src="${car.img}" alt="${car.name}" loading="lazy">
+      <div class="car-card-overlay"></div>
+      <div class="car-card-badge ${badgeClass}">${badgeLabel}</div>
+      <div class="car-card-cat">${car.category.toUpperCase()}</div>
+    </div>
+    <div class="car-card-body">
+      <div class="car-card-name">${car.name}</div>
+      <div class="car-card-specs">
+        <span class="spec-chip">${svgGear} ${car.transmission}</span>
+        <span class="spec-chip">${svgPeople} ${car.seats} seats</span>
+        <span class="spec-chip">${svgFuel} ${car.fuel}</span>
+      </div>
+      <div class="car-card-divider"></div>
+      <div class="car-card-footer">
+        <div class="car-price">
+          <div class="car-price-amount">&#8358;${car.price.toLocaleString()}</div>
+          <div class="car-price-period">per day</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="openCarModal(${car.id})">Details</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderFeatured() {
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+  grid.innerHTML = CARS.slice(0, 6).map(buildCarCard).join('');
+}
+
+/* ============================================================
+   FLEET PAGE
+   ============================================================ */
+function buildFleetCard(car) {
+  const badgeClass = { available:'badge-available', limited:'badge-limited', booked:'badge-booked' }[car.availability];
+  const badgeLabel = { available:'Available', limited:'Limited', booked:'Booked' }[car.availability];
+  const svgGear   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2"/></svg>`;
+  const svgFuel   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 22V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5h1a2 2 0 0 1 2 2v3a1 1 0 0 0 1 1h1"/></svg>`;
+  const svgSeat   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>`;
+  const svgEngine = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>`;
+  return `<div class="fleet-card" data-cat="${car.category}">
+    <div class="fleet-card-media">
+      <img class="fleet-card-img" src="${car.img}" alt="${car.name}" loading="lazy">
+      <div class="fleet-card-overlay-gradient"></div>
+      <div class="fleet-card-badges">
+        <span class="car-card-badge ${badgeClass}">${badgeLabel}</span>
+        <span class="car-card-badge" style="background:rgba(0,0,0,0.6);color:var(--white-dim);">${car.year}</span>
+      </div>
+    </div>
+    <div class="fleet-card-body">
+      <div class="fleet-card-name">${car.name}</div>
+      <div class="fleet-card-year">${car.category.toUpperCase()} &nbsp;·&nbsp; ${car.year}</div>
+      <div class="fleet-card-specs">
+        <div class="fleet-spec">${svgGear}<div><div class="fleet-spec-label">Transmission</div><div class="fleet-spec-val">${car.transmission}</div></div></div>
+        <div class="fleet-spec">${svgFuel}<div><div class="fleet-spec-label">Fuel</div><div class="fleet-spec-val">${car.fuel}</div></div></div>
+        <div class="fleet-spec">${svgSeat}<div><div class="fleet-spec-label">Seats</div><div class="fleet-spec-val">${car.seats} passengers</div></div></div>
+        <div class="fleet-spec">${svgEngine}<div><div class="fleet-spec-label">Engine</div><div class="fleet-spec-val">${car.engine}</div></div></div>
+      </div>
+      <div class="fleet-card-features">${car.features.slice(0,3).map(f=>`<span class="fleet-feature-tag">${f}</span>`).join('')}</div>
+      <div class="fleet-card-footer">
+        <div class="car-price">
+          <div class="car-price-amount">&#8358;${car.price.toLocaleString()}</div>
+          <div class="car-price-period">per day — unlimited km</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="openCarModal(${car.id})">View Details</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function applyFilter(cat) {
+  currentFilter = cat;
+  const grid = document.getElementById('fleet-grid');
+  if (!grid) return;
+  document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.toggle('active', tab.dataset.filter === cat));
+  const filtered = cat === 'all' ? CARS : CARS.filter(c => c.category === cat);
+  setTimeout(() => {
+    grid.innerHTML = filtered.map(buildFleetCard).join('');
+    const count = document.getElementById('fleet-count');
+    if (count) count.textContent = `${filtered.length} vehicle${filtered.length !== 1 ? 's' : ''}`;
+    grid.querySelectorAll('.fleet-card').forEach((card, i) => {
+      card.style.opacity = '0'; card.style.transform = 'translateY(16px)';
+      card.style.transition = `opacity 0.4s ease ${i * 0.06}s, transform 0.4s ease ${i * 0.06}s`;
+      requestAnimationFrame(() => requestAnimationFrame(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }));
+    });
+  }, 150);
+}
+
+function renderFleet() { applyFilter('all'); }
+
+document.addEventListener('click', function(e) {
+  const tab = e.target.closest('.filter-tab');
+  if (!tab) return;
+  applyFilter(tab.dataset.filter);
+});
+
+/* ============================================================
+   CAR MODAL
+   ============================================================ */
+function openCarModal(carId) {
+  const car = CARS.find(c => c.id === carId);
+  if (!car) return;
+  const modal = document.getElementById('car-modal');
+  const box   = document.getElementById('car-modal-box');
+  const badgeClass = { available:'badge-available', limited:'badge-limited', booked:'badge-booked' }[car.availability];
+  const badgeLabel = { available:'Available', limited:'Limited', booked:'Booked' }[car.availability];
+  box.innerHTML = `
+    <button class="car-modal-close" id="car-modal-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img class="modal-hero-img" src="${car.img}" alt="${car.name}">
+    <div class="modal-body">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+        <div><h2 class="modal-car-name">${car.name}</h2><div style="font-family:var(--font-condensed);font-size:var(--size-xs);letter-spacing:3px;text-transform:uppercase;color:var(--white-ghost);">${car.year} · ${car.category.toUpperCase()}</div></div>
+        <span class="car-card-badge ${badgeClass}" style="flex-shrink:0;">${badgeLabel}</span>
+      </div>
+      <p class="modal-car-desc">${car.desc}</p>
+      <div class="modal-specs-grid">
+        <div class="modal-spec"><div class="modal-spec-label">Transmission</div><div class="modal-spec-val">${car.transmission}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Fuel Type</div><div class="modal-spec-val">${car.fuel}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Seats</div><div class="modal-spec-val">${car.seats}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Engine</div><div class="modal-spec-val">${car.engine}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Doors</div><div class="modal-spec-val">${car.doors}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Mileage</div><div class="modal-spec-val">${car.mileage}</div></div>
+      </div>
+      <div style="margin-bottom:var(--spacing-md);">
+        <div style="font-family:var(--font-condensed);font-size:var(--size-xs);letter-spacing:3px;text-transform:uppercase;color:var(--white-ghost);margin-bottom:10px;">Included Features</div>
+        <div class="fleet-card-features">${car.features.map(f=>`<span class="fleet-feature-tag">${f}</span>`).join('')}</div>
+      </div>
+      <div class="modal-footer">
+        <div class="car-price"><div class="car-price-amount" style="font-size:var(--size-3xl);">&#8358;${car.price.toLocaleString()}</div><div class="car-price-period">per day — unlimited kilometres</div></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-outline" onclick="closeCarModal()">Close</button>
+          <button class="btn btn-primary" onclick="closeCarModal();navigate('home','booking');">Reserve Now</button>
+        </div>
+      </div>
+    </div>`;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('car-modal-close').addEventListener('click', closeCarModal);
+}
+
+function closeCarModal() {
+  document.getElementById('car-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('car-modal-backdrop').addEventListener('click', closeCarModal);
+
+/* ============================================================
+   TESTIMONIALS CAROUSEL
+   ============================================================ */
+function buildTestimonials() {
+  const track = document.getElementById('testimonials-track');
+  const dotsContainer = document.getElementById('carousel-dots');
+  if (!track || !dotsContainer) return;
+  const starSvg = filled => `<svg viewBox="0 0 24 24" style="width:14px;height:14px;" ${filled?'fill="#f0a500"':'fill="none" stroke="#444" stroke-width="1.5"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+  track.innerHTML = TESTIMONIALS.map((pair) => `
+    <div class="testimonial-slide">
+      ${pair.map(t => `
+        <div class="testimonial-card">
+          <div class="testimonial-stars">${[1,2,3,4,5].map(i=>starSvg(i<=t.rating)).join('')}</div>
+          <p class="testimonial-text">"${t.text}"</p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="${t.img}" alt="${t.name}" loading="lazy" onerror="this.style.display='none'">
+            <div><div class="testimonial-name">${t.name}</div><div class="testimonial-role">${t.role}</div></div>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+  dotsContainer.innerHTML = TESTIMONIALS.map((_,i) => `<div class="carousel-dot ${i===0?'active':''}" data-index="${i}"></div>`).join('');
+  updateCarousel(0);
+}
+
+function updateCarousel(idx) {
+  carouselIndex = idx;
+  const track = document.getElementById('testimonials-track');
+  if (track) track.style.transform = `translateX(-${idx * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
+}
+
+function carouselNext() { updateCarousel((carouselIndex + 1) % TESTIMONIALS.length); resetAutoPlay(); }
+function carouselPrev() { updateCarousel((carouselIndex - 1 + TESTIMONIALS.length) % TESTIMONIALS.length); resetAutoPlay(); }
+function startAutoPlay()  { carouselAutoTimer = setInterval(() => updateCarousel((carouselIndex + 1) % TESTIMONIALS.length), 6000); }
+function resetAutoPlay()  { clearInterval(carouselAutoTimer); startAutoPlay(); }
+
+document.getElementById('next-btn').addEventListener('click', carouselNext);
+document.getElementById('prev-btn').addEventListener('click', carouselPrev);
+
+document.addEventListener('click', function(e) {
+  const dot = e.target.closest('.carousel-dot');
+  if (!dot) return;
+  updateCarousel(parseInt(dot.dataset.index));
+  resetAutoPlay();
+});
+
+let swipeStartX = 0;
+const tTrack = document.getElementById('testimonials-track');
+if (tTrack) {
+  tTrack.addEventListener('touchstart', e => swipeStartX = e.touches[0].clientX, { passive: true });
+  tTrack.addEventListener('touchend', e => { const diff = swipeStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) diff > 0 ? carouselNext() : carouselPrev(); }, { passive: true });
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+const bookingForm = document.getElementById('booking-form');
+const bookingMsg  = document.getElementById('booking-msg');
+if (bookingForm) {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bf-from').min = today;
+  document.getElementById('bf-to').min   = today;
+  document.getElementById('bf-from').addEventListener('change', function() { document.getElementById('bf-to').min = this.value; });
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    setTimeout(() => {
+      bookingMsg.className = 'form-msg success';
+      bookingMsg.textContent = 'Request received. A concierge will contact you within 60 minutes.';
+      this.reset(); btn.textContent = 'Check Availability'; btn.disabled = false;
+      setTimeout(() => { bookingMsg.textContent = ''; bookingMsg.className = 'form-msg'; }, 6000);
+    }, 1500);
+  });
+}
+
+const contactForm = document.getElementById('contact-form');
+const contactMsg  = document.getElementById('contact-msg');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    setTimeout(() => {
+      contactMsg.className = 'form-msg success';
+      contactMsg.textContent = 'Message sent. We will respond within 60 minutes.';
+      this.reset();
+      btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+      btn.disabled = false;
+      setTimeout(() => { contactMsg.textContent = ''; contactMsg.className = 'form-msg'; }, 6000);
+    }, 1500);
+  });
+}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+function openModal(id)  { const m = document.getElementById(id); if (m) m.classList.add('open'); }
+function closeModal(id) { const m = document.getElementById(id); if (m) m.classList.remove('open'); }
+
+['footer-privacy-link','fl-privacy'].forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => openModal('modal-privacy')); });
+['footer-terms-link','fl-terms'].forEach(id    => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => openModal('modal-terms')); });
+['footer-cancel-link','fl-cancel'].forEach(id  => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => openModal('modal-cancel')); });
+
+document.addEventListener('click', function(e) { const cb = e.target.closest('[data-close]'); if (cb) closeModal(cb.dataset.close); });
+document.querySelectorAll('.overlay-modal').forEach(modal => { modal.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('open'); }); });
+
+/* ============================================================
+   VIDEO — smooth load, no crackling
+   ============================================================ */
+const heroVideo = document.getElementById('hero-video');
+if (heroVideo) {
+  // Show video only once it can play smoothly
+  heroVideo.addEventListener('canplaythrough', () => heroVideo.classList.add('loaded'));
+  heroVideo.addEventListener('canplay', () => heroVideo.classList.add('loaded'));
+  heroVideo.addEventListener('error', () => heroVideo.style.display = 'none');
+  // Attempt play — browsers may block until user interacts
+  heroVideo.play().catch(() => {
+    // Auto-play blocked: still show fallback, try again on first interaction
+    document.addEventListener('click', () => heroVideo.play().catch(() => {}), { once: true });
+  });
+}
+
+/* ============================================================
+   FOOTER YEAR
+   ============================================================ */
+const fyear = document.getElementById('footer-year');
+if (fyear) fyear.textContent = new Date().getFullYear();
+
+/* ============================================================
+   KEYBOARD
+   ============================================================ */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeCarModal();
+    ['modal-privacy','modal-terms','modal-cancel'].forEach(closeModal);
+    closeMobileMenu();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+window.addEventListener('DOMContentLoaded', () => {
+  buildTicker();
+  buildTestimonials();
+  renderFeatured();
+  renderFleet();
+  triggerReveal();
+  initCounters();
+  startAutoPlay();
+  setTimeout(() => {
+    document.getElementById('page-loader').classList.add('hidden');
+    triggerReveal();
+    initCounters();
+  }, 1200);
+});
+
+/* ============================================================
+   PARALLAX
+   ============================================================ */
+window.addEventListener('scroll', () => {
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent && currentPage === 'home') {
+    const scrolled = window.scrollY;
+    heroContent.style.transform = `translateY(${scrolled * 0.25}px)`;
+    heroContent.style.opacity   = 1 - (scrolled / 600);
+  } else if (heroContent) {
+    heroContent.style.transform = '';
+    heroContent.style.opacity   = '';
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
